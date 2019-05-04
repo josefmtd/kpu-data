@@ -18,6 +18,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+import random
 
 directory = 'kpu-data-master/'
 data = {}
@@ -28,7 +29,7 @@ cleanTotalSuaraNasional = []
 for filename in os.listdir(directory):
     if filename.endswith(".csv"):
         dataName = filename[:-4]
-        data[dataName] = pd.read_csv('kpu-data-master/'+filename)
+        data[dataName] = pd.read_csv(filename)
         
         nolSatu = data[dataName]["01 KPU"]        
         nolDua = data[dataName]["02 KPU"]
