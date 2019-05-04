@@ -46,8 +46,7 @@ for filename in os.listdir(directory):
         continue
 
 percentageNolSatuNasional = np.divide(cleanNolSatuNasional, cleanTotalSuaraNasional)*100
-percentageNolSatuNasionalSeries = pd.Series(percentageNolSatuNasional,
-                                        name = "Distribusi Persentase Suara 01 Nasional")
+percentageNolSatuNasionalSeries = pd.Series(percentageNolSatuNasional)
 
 plotDistribusiNasional, seabornNasional = plt.subplots()
 sns.distplot(percentageNolSatuNasionalSeries, kde=False, bins=100, ax = seabornNasional)
@@ -77,6 +76,7 @@ meanNolDuaNasional = 100 - meanNolSatuNasional
 standardErrorNasional = np.std(percentageNolSatuNasional)/np.sqrt(len(cleanTotalSuaraNasional))
 
 plotDistribusiNasionalRandomSample, ax = plt.subplots(2,1)
-sns.distplot(percentageNolSatuRandomSampleSeries, bins=100, ax = ax[0])
-sns.distplot(percentageNolSatuNasionalSeries, bins=100, ax = ax[1])
-plotDistribusiNasionalRandomSample.suptitle('{:.2f}% vs {:.2f}% Real Count Sementara \n {:.2f}% vs {:.2f}%Random Sampling dengan MOE = +/-{:.2f}%'.format(meanNolSatuNasional, meanNolDuaNasional, meanNolSatu, meanNolDua, standardError*2.58))
+sns.distplot(percentageNolSatuRandomSampleSeries, kde=False, bins=100, ax = ax[0])
+sns.distplot(percentageNolSatuNasionalSeries, kde=False, bins=100, ax = ax[1])
+plotDistribusiNasionalRandomSample.suptitle('{:.2f}% vs {:.2f}% Real Count Sementara \n {:.2f}% vs {:.2f}% Random Sampling dengan MOE = +/-{:.2f}%'.format(meanNolSatuNasional, meanNolDuaNasional, meanNolSatu, meanNolDua, standardError*2.58))
+plotDistribusiNasionalRandomSample.savefig('RandomSampling.png')
