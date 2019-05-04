@@ -605,7 +605,7 @@ percentageNolSatuNasional = np.divide(cleanNolSatuNasional, cleanTotalSuaraNasio
 percentageNolSatuNasionalSeries = pd.Series(percentageNolSatuNasional,
                                         name = "Distribusi Persentase Suara 01 Nasional")
 
-randomSample = random.sample(range(len(cleanTotalSuaraNasional)), 10000)
+randomSample = random.sample(range(len(cleanTotalSuaraNasional)), 2000)
 
 nolSatuRandomSample = []
 nolDuaRandomSample = []
@@ -625,7 +625,7 @@ sns.distplot(percentageNolSatuRandomSampleSeries, kde=False, bins=100, ax = ax[0
 sns.distplot(percentageNolSatuNasionalSeries, kde=False, bins=100, ax = ax[1])
 
 
-meanNolSatu = np.mean(percentageNolSatuRandomSample)
+meanNolSatu = np.sum(nolSatuRandomSample)/np.sum(totalSuaraRandomSample)*100
 meanNolDua = 100 - meanNolSatu
 standardError = np.std(percentageNolSatuRandomSample)/np.sqrt(len(randomSample))
 
@@ -635,11 +635,13 @@ print("Suara 02:", str(meanNolDua) + "%")
 print("Standard Error:", str(standardError)+ "%")
 print("Margin of Error (99% CL):", str(standardError*2.58) + "%")
 
-meanNolSatuNasional = np.mean(percentageNolSatuNasional)
+meanNolSatuNasional = np.sum(cleanNolSatuNasional)/np.sum(cleanTotalSuaraNasional)*100
 meanNolDuaNasional = 100 - meanNolSatuNasional
 standardErrorNasional = np.std(percentageNolSatuNasional)/np.sqrt(len(cleanTotalSuaraNasional))
 
-print("Population")
+print("")
+
+print("Real Count Data")
 print("Suara 01:", str(meanNolSatuNasional) + "%")
 print("Suara 02:", str(meanNolDuaNasional) + "%")
 print("Standard Error:", str(standardErrorNasional) + "%")
