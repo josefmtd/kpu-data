@@ -48,10 +48,6 @@ for filename in os.listdir(directory):
 percentageNolSatuNasional = np.divide(cleanNolSatuNasional, cleanTotalSuaraNasional)*100
 percentageNolSatuNasionalSeries = pd.Series(percentageNolSatuNasional)
 
-plotDistribusiNasional, seabornNasional = plt.subplots()
-sns.distplot(percentageNolSatuNasionalSeries, kde=False, bins=100, ax = seabornNasional)
-plotDistribusiNasional.savefig("C:/Users/JosefStevanus/Documents/GitHub/kpu-data/Nasional.png")
-
 randomSample = random.sample(range(len(cleanTotalSuaraNasional)), 2000)
 
 nolSatuRandomSample = []
