@@ -46,6 +46,9 @@ class dataPemilu:
         elif dataSource == "KawalPemilu":
             self.nolSatu = data ["01 KawalPemilu"]
             self.nolDua = data ["02 KawalPemilu"]
+        elif dataSource == "KawalPilpres":
+            self.nolSatu = data["01 KawalPilpres"]
+            self.nolDua = data["02 KawalPilpres"]
         else:
             print("Source data does not exist")
         self.totalSuara = np.add(self.nolSatu, self.nolDua)
@@ -94,32 +97,32 @@ totalTPSDaerahIstimewaYogyakarta = 11781
 totalTPSDaerahKhususIbukotaJakarta = 29063
 totalTPSGorontalo = 5866
 totalTPSJambi = 11342
-totalTPSJawaBarat = 70169
-totalTPSJawaTengah = 86121
-totalTPSJawaTimur = 67454
-totalTPSKalimantanBarat = 10791
-totalTPSKalimantanSelatan = 6722
-totalTPSKalimantanTengah = 4780
-totalTPSKalimantanTimur = 6780
-totalTPSKalimantanUtara = 1512
-totalTPSKepulauanBangka = 3597
-totalTPSKepulauanRiau = 4659
-totalTPSLampung = 20407
-totalTPSMaluku = 2705
+totalTPSJawaBarat = 138136
+totalTPSJawaTengah = 116407
+totalTPSJawaTimur = 130184
+totalTPSKalimantanBarat = 16500
+totalTPSKalimantanSelatan = 13153
+totalTPSKalimantanTengah = 8133
+totalTPSKalimantanTimur = 11334
+totalTPSKalimantanUtara = 2186
+totalTPSKepulauanBangka = 3803
+totalTPSKepulauanRiau = 5478
+totalTPSLampung = 28060
+totalTPSMaluku = 5524
 totalTPSMalukuUtara = 3805
-totalTPSNusaTenggaraBarat = 10082
-totalTPSNusaTenggaraTimur = 7656
-totalTPSPapua = 1006
-totalTPSPapuaBarat = 749
-totalTPSRiau = 13174
-totalTPSSulawesiBarat = 1857
-totalTPSSulawesiSelatan = 14608
-totalTPSSulawesiTengah = 3719
-totalTPSSulawesiTenggara = 3710
-totalTPSSulawesiUtara = 3986
-totalTPSSumateraBarat = 13804
-totalTPSSumateraSelatan = 19427
-totalTPSSumateraUtara = 30883
+totalTPSNusaTenggaraBarat = 15989
+totalTPSNusaTenggaraTimur = 14981
+totalTPSPapua = 15272
+totalTPSPapuaBarat = 3915
+totalTPSRiau = 17642
+totalTPSSulawesiBarat = 5524
+totalTPSSulawesiSelatan = 26355
+totalTPSSulawesiTengah = 9191
+totalTPSSulawesiTenggara = 7817
+totalTPSSulawesiUtara = 7828
+totalTPSSumateraBarat = 16719
+totalTPSSumateraSelatan = 25332
+totalTPSSumateraUtara = 42668
 totalTPSNasional = 809497
 
 aceh = dataPemilu("Aceh.csv", "KPU", totalTPSAceh, int(1.95/100*sampleSize))
